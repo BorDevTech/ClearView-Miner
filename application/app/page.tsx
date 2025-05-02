@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { EstimateReward } from "./(api)/(GET)/estimate_reward";
 import { Button, Field, Input, Stack } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
-import { register } from "module";
 
 interface RewardFormValues {
   mh: number;
