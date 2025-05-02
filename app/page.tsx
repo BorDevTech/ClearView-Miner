@@ -20,10 +20,12 @@ interface RewardFormValues {
 
 const DomainSelect = () => (
   <NativeSelect.Root size="xs" variant="plain" width="auto" me="-1">
-    <NativeSelect.Field defaultValue=".com" fontSize="sm">
-      <option value=".com">.com</option>
-      <option value=".org">.org</option>
-      <option value=".net">.net</option>
+    <NativeSelect.Field defaultValue="mh" fontSize="sm">
+      <option value="core">h/s</option>
+      <option value="core2">Kh/s</option>
+      <option value="mh">Mh/s</option>
+      <option value="gh">Gh/s</option>
+      <option value="asic">Th/s</option>
     </NativeSelect.Field>
     <NativeSelect.Indicator />
   </NativeSelect.Root>
@@ -85,13 +87,22 @@ export default function Home() {
             <VStack gap="4" align="flex-start" maxW="sm">
               <Field.Root invalid={!!errors.mh}>
                 <Field.Label>Hashrate</Field.Label>
-                <Input
-                  {...register(
-                    "mh"
-                    // { required: "Hashrate amount is required" }
-                  )}
-                  defaultValue={"120"}
-                />
+                <InputGroup flex="1" endElement={<DomainSelect />}>
+                  <Input
+                    {...register(
+                      "mh"
+                      // { required: "Hashrate amount is required" }
+                      // 0 0's for Mh
+                      // {Algo name: "kawpow"}
+                      // 0 0's for Mh
+                      // 3 0's for Th
+                      // 6 0's for Gh
+                      // 12 0's for Th
+                    )}
+                    defaultValue={"120"}
+                  />
+                </InputGroup>
+
                 <Field.ErrorText>{errors.mh?.message}</Field.ErrorText>
               </Field.Root>
 
