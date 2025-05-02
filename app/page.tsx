@@ -109,11 +109,11 @@ export default function Home() {
               <>
                 <p className="text-green-500">
                   Daily Reward:
-                  {` ${rewardData.result?.day} ${rewardData.result?.coin}`}
+                  {` ${rewardData.result?.day} ${rewardData.result?.coin} Coin`}
                 </p>
                 <p className="text-green-500">
                   Monthly Reward:
-                  {` ${rewardData.result?.month} ${rewardData.result?.coin}`}
+                  {` ${rewardData.result?.month} ${rewardData.result?.coin} Coin`}
                 </p>
               </>
             )
