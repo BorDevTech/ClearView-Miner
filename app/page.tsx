@@ -2,8 +2,14 @@
 
 import { useState } from "react";
 import { EstimateReward } from "./(api)/(GET)/estimate_reward";
-import { Field, Input, VStack } from "@chakra-ui/react";
-import { Button } from "@chakra-ui/button";
+import {
+  Field,
+  Input,
+  VStack,
+  InputGroup,
+  Button,
+  NativeSelect,
+} from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 
 interface RewardFormValues {
@@ -11,6 +17,18 @@ interface RewardFormValues {
   algo: string;
   coin: string;
 }
+
+const DomainSelect = () => (
+  <NativeSelect.Root size="xs" variant="plain" width="auto" me="-1">
+    <NativeSelect.Field defaultValue=".com" fontSize="sm">
+      <option value=".com">.com</option>
+      <option value=".org">.org</option>
+      <option value=".net">.net</option>
+    </NativeSelect.Field>
+    <NativeSelect.Indicator />
+  </NativeSelect.Root>
+);
+
 export default function Home() {
   const {
     register,
@@ -101,7 +119,7 @@ export default function Home() {
               </Field.Root>
 
               <Button type="submit">Submit</Button>
-            </Stack>
+            </VStack>
           </form>
           {rewardData ? (
             rewardData.error ? (
