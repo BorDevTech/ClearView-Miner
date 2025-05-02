@@ -1,5 +1,3 @@
-"use server";
-
 export async function EstimateReward(
   mh: number,
   coin?: string,
