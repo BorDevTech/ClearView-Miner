@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { EstimateReward } from "./(api)/(GET)/estimate_reward";
-import { Button, Field, Input, Stack } from "@chakra-ui/react";
+import { Field, Input, VStack } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/button";
 import { useForm } from "react-hook-form";
 
 interface RewardFormValues {
@@ -63,7 +64,7 @@ export default function Home() {
         {/* New div to display the reward data */}
         <div className="mt-8 p-4 border rounded bg-gray-100 dark:bg-gray-800">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <Stack gap="4" align="flex-start" maxW="sm">
+            <VStack gap="4" align="flex-start" maxW="sm">
               <Field.Root invalid={!!errors.mh}>
                 <Field.Label>Hashrate</Field.Label>
                 <Input
